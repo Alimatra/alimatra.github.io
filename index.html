@@ -3,219 +3,425 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Alimatou Traoré – Data Scientist</title>
+  <title>Alimatou Traore | Data Scientist &amp; AI Consultant</title>
+  <meta name="description" content="Portfolio d'Alimatou Traore, Data Scientist  spécialisée en machine learning, intelligence artificielle, NLP et bio-informatique.">
+  <meta name="author" content="Alimatou Traore">
 
-  <!-- SEO -->
-  <meta name="description" content="Portfolio d'Alimatou Traoré, Data Scientist freelance spécialisée en machine learning, intelligence artificielle, NLP et bio-informatique.">
-  <meta name="author" content="Alimatou Traoré">
-
-  <!-- Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --ink: #14213d;
+      --muted: #5b6b86;
+      --line: #e5eaf3;
+      --brand: #2563eb;
+      --brand-2: #06b6d4;
+      --dark: #0b1220;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
-      background: #f6f9fc;
-      color: #2c2c2c;
-      line-height: 1.7;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
     }
 
-    header {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-    }
+    a { text-decoration: none; color: inherit; }
 
-    header h1 {
-      font-size: 3.2em;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.4em;
-      opacity: 0.9;
-    }
-
-    .container {
+    /* NAV */
+    nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       max-width: 1150px;
       margin: auto;
-      padding: 80px 20px;
+      padding: 24px 20px;
+      color: #fff;
+    }
+    nav .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 1.15em; }
+    nav .logo span { color: var(--brand-2); }
+    nav .links a { margin-left: 24px; font-weight: 500; opacity: 0.85; font-size: 0.95em; }
+    nav .links a:hover { opacity: 1; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(37,99,235,0.45), transparent 45%),
+        radial-gradient(circle at 85% 70%, rgba(6,182,212,0.35), transparent 45%),
+        var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 170px 20px 120px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 7px 16px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      font-size: 0.85em;
+      font-weight: 500;
+      background: rgba(255,255,255,0.07);
+      margin-bottom: 26px;
+    }
+    .badge i { color: #4ade80; margin-right: 6px; font-size: 0.6em; vertical-align: middle; }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 18px;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, #60a5fa, var(--brand-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 36px;
+      font-size: 1.15em;
+      color: rgba(255,255,255,0.78);
+    }
+    .cta a {
+      display: inline-block;
+      margin: 6px;
+      padding: 13px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .cta .primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 10px 30px rgba(37,99,235,0.4);
+    }
+    .cta .ghost { border: 1px solid rgba(255,255,255,0.35); background: rgba(255,255,255,0.06); }
+    .cta a:hover { transform: translateY(-3px); }
+
+    /* SKILLS */
+    .skills {
+      max-width: 1000px;
+      margin: -45px auto 0;
+      position: relative;
+      z-index: 2;
+      background: var(--card);
+      border-radius: 18px;
+      padding: 22px 26px;
+      box-shadow: 0 20px 50px rgba(15,23,42,0.12);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .skills span {
+      font-size: 0.88em;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: 999px;
     }
 
+    /* SECTIONS */
+    section { max-width: 1150px; margin: auto; padding: 90px 20px 30px; }
+    .eyebrow {
+      text-align: center;
+      color: var(--brand);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      font-size: 0.8em;
+      text-transform: uppercase;
+    }
     h2 {
       text-align: center;
-      font-size: 2.5em;
-      margin-bottom: 60px;
-      color: #203a43;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: -0.02em;
+      margin: 8px 0 14px;
+    }
+    .lead { text-align: center; color: var(--muted); max-width: 620px; margin: 0 auto 34px; }
+
+    /* FILTERS */
+    .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 44px; }
+    .filters button {
+      font-family: inherit;
+      font-size: 0.9em;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--muted);
+      padding: 9px 20px;
+      border-radius: 999px;
+      transition: all .2s ease;
+    }
+    .filters button:hover { color: var(--brand); border-color: var(--brand); }
+    .filters button.active {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(37,99,235,0.3);
     }
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 35px;
+    /* CARDS */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
     }
-
-    .project {
-      background: white;
-      border-radius: 16px;
-      padding: 35px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 45px rgba(15,23,42,0.10);
+      border-color: #cfdcf7;
     }
-
-    .project:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    .card.hide { display: none; }
+    .card .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      font-size: 1.25em;
+      color: #fff;
     }
-
-    .project h3 {
-      margin-top: 0;
-      color: #0072ff;
+    .c-ia .icon { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+    .c-bio .icon { background: linear-gradient(135deg, #10b981, #06b6d4); }
+    .c-data .icon { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+    .c-analytics .icon { background: linear-gradient(135deg, #2563eb, #06b6d4); }
+    .cat { font-size: 0.75em; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .card h3 { margin: 0 0 10px; font-size: 1.2em; letter-spacing: -0.01em; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95em; }
+    .result {
+      margin-top: 14px !important;
+      color: var(--ink) !important;
+      font-weight: 600;
+      font-size: 0.9em !important;
     }
-
-    .tags {
-      margin: 15px 0;
-    }
-
+    .result i { color: #10b981; margin-right: 6px; }
+    .tags { margin: 18px 0 0; }
     .tag {
       display: inline-block;
-      background: #e6f0ff;
-      color: #003366;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.85em;
-      margin: 5px 5px 0 0;
+      background: #eef3ff;
+      color: #1e3a8a;
+      padding: 4px 11px;
+      border-radius: 8px;
+      font-size: 0.78em;
+      font-weight: 600;
+      margin: 4px 4px 0 0;
     }
+    .actions { margin-top: auto; padding-top: 22px; display: flex; gap: 14px; }
+    .actions a { font-weight: 600; font-size: 0.9em; color: var(--brand); }
+    .actions a i { margin-right: 6px; }
+    .actions a:hover { text-decoration: underline; }
 
-    .btn {
+    .more { text-align: center; margin-top: 46px; }
+    .more a {
       display: inline-block;
-      margin-top: 20px;
-      background: linear-gradient(135deg, #00a8cc, #0072ff);
-      color: white;
-      padding: 12px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.3s ease;
+      background: var(--ink);
+      color: #fff;
+      padding: 14px 30px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform .25s ease;
     }
+    .more a:hover { transform: translateY(-3px); }
 
-    .btn:hover {
-      transform: scale(1.07);
-    }
-
-    footer {
-      background: #0f2027;
-      color: white;
+    /* CONTACT */
+    .contact {
+      margin: 90px auto 0;
+      max-width: 1000px;
+      background: linear-gradient(135deg, #0b1220, #172554);
+      color: #fff;
+      border-radius: 28px;
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 24px;
     }
+    .contact h2 { color: #fff; margin-top: 0; }
+    .contact p { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto 28px; }
+    .contact .cta a { display: inline-block; }
 
-    footer a {
-      color: #00d4ff;
-      text-decoration: none;
+    footer { text-align: center; padding: 50px 20px; color: var(--muted); font-size: 0.9em; }
+    footer a { color: var(--brand); font-weight: 600; }
+
+    @media (max-width: 600px) {
+      nav .links { display: none; }
+      .hero { padding-top: 130px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Portfolio</h1>
-    <p>Projets Data Science • Machine Learning • IA</p>
+  <!-- HERO -->
+  <header class="hero">
+    <nav>
+      <div class="logo">A.<span>Traoré</span></div>
+      <div class="links">
+        <a href="#projets">Projets</a>
+        <a href="#contact">Contact</a>
+        <a href="index.html">Site principal</a>
+      </div>
+    </nav>
+
+    <div class="badge"><i class="fas fa-circle"></i> Disponible pour des missions et une alternance</div>
+    <h1>Alimatou <span>Traoré</span></h1>
+    <p>Data Scientist &amp; AI Consultant. Je conçois des solutions de machine learning, NLP, RAG et bio-informatique, du prototype à la mise en production.</p>
+
+    <div class="cta">
+      <a class="primary" href="#projets">Voir mes projets</a>
+      <a class="ghost" href="https://github.com/Alimatra" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+      <a class="ghost" href="https://www.linkedin.com/in/alimatou-traore-" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
   </header>
 
-  <!-- PROJECTS -->
-  <section class="container">
-    <h2>Projets sélectionnés</h2>
+  <!-- STACK -->
+  <div class="skills">
+    <span>Python</span><span>R</span><span>SQL</span><span>PyTorch</span><span>Scikit-learn</span>
+    <span>LangChain</span><span>Azure</span><span>AWS</span><span>Databricks</span><span>Docker</span>
+  </div>
 
-    <div class="projects">
+  <!-- PROJETS -->
+  <section id="projets">
+    <div class="eyebrow">Portfolio</div>
+    <h2>Mes projets</h2>
+    <p class="lead">Code, documentation et démos disponibles sur GitHub.</p>
 
-      <!-- PROJECT 1 -->
-      <div class="project">
-        <h3>Virtual Adversarial Training (VAT)</h3>
-        <p>
-          Implémentation d’une méthode de régularisation avancée pour
-          l’apprentissage semi-supervisé afin d’améliorer la robustesse
-          des modèles deep learning.
-        </p>
+    <div class="filters">
+      <button class="active" data-filter="all">Tous</button>
+      <button data-filter="ia">IA &amp; NLP</button>
+      <button data-filter="bio">Bio-informatique</button>
+      <button data-filter="data">Data Engineering</button>
+      <button data-filter="analytics">Analytics</button>
+    </div>
 
-        <div class="tags">
-          <span class="tag">PyTorch</span>
-          <span class="tag">Deep Learning</span>
-          <span class="tag">CNN</span>
-          <span class="tag">Semi-supervisé</span>
+    <div class="grid">
+
+      <article class="card c-bio" data-cat="bio">
+        <div class="top"><div class="icon"><i class="fas fa-dna"></i></div><span class="cat">Bio-informatique</span></div>
+        <h3>Pipeline RNA-seq reproductible</h3>
+        <p>Pipeline d'analyse de données RNA-seq, de la donnée brute jusqu'à l'expression différentielle, pensé pour être entièrement reproductible.</p>
+        <div class="tags"><span class="tag">RNA-seq</span><span class="tag">Reproductibilité</span><span class="tag">Bio-informatique</span></div>
+        <div class="actions"><a href="https://github.com/Alimatra/bioinformatics-rnaseq-pipeline" target="_blank" rel="noopener"><i class="fab fa-github"></i>Code</a></div>
+      </article>
+
+      <article class="card c-ia" data-cat="ia">
+        <div class="top"><div class="icon"><i class="fas fa-robot"></i></div><span class="cat">IA &amp; NLP</span></div>
+        <h3>Hotel RAG Assistant</h3>
+        <p>Assistant conversationnel basé sur le RAG qui répond à partir de documents PDF, avec recherche vectorielle, API et intégration continue.</p>
+        <div class="tags"><span class="tag">RAG</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
+        <div class="actions"><a href="https://github.com/Alimatra/hotel-rag-assistant" target="_blank" rel="noopener"><i class="fab fa-github"></i>Code</a></div>
+      </article>
+
+      <article class="card c-analytics" data-cat="analytics">
+        <div class="top"><div class="icon"><i class="fas fa-chart-line"></i></div><span class="cat">Analytics</span></div>
+        <h3>Analyse &amp; prévision multi-sites</h3>
+        <p>Analyse et prévision de données de plusieurs sites de restauration, avec un tableau de bord interactif déployé en ligne.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Prophet</span><span class="tag">Streamlit</span></div>
+        <div class="actions">
+          <a href="https://github.com/Alimatra/restaurant-multisite-analytics" target="_blank" rel="noopener"><i class="fab fa-github"></i>Code</a>
+          <a href="https://restaurant-multisite-analytics-4tfstgmmtzjtntiir2dtb5.streamlit.app/" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i>Démo</a>
         </div>
+      </article>
 
-        <p><strong>Résultat :</strong> précision portée de 80 % à 98,45 %.</p>
-      </div>
+      <article class="card c-data" data-cat="data">
+        <div class="top"><div class="icon"><i class="fas fa-shield-halved"></i></div><span class="cat">Data Engineering</span></div>
+        <h3>FraudLens Pipeline</h3>
+        <p>Pipeline de données et de détection de fraude, conçu comme un projet de data engineering et MLOps de bout en bout.</p>
+        <div class="tags"><span class="tag">Data Engineering</span><span class="tag">MLOps</span><span class="tag">Python</span></div>
+        <div class="actions"><a href="https://github.com/Alimatra/fraudlens-pipeline" target="_blank" rel="noopener"><i class="fab fa-github"></i>Code</a></div>
+      </article>
 
-      <!-- PROJECT 2 -->
-      <div class="project">
-        <h3>Classification de cellules – scRNA-seq</h3>
-        <p>
-          Prédiction de types cellulaires (NK, T, cancer) à partir de données
-          single-cell RNA sequencing avec pipelines avancés de prétraitement
-          et sélection de variables.
-        </p>
+      <article class="card c-analytics" data-cat="analytics">
+        <div class="top"><div class="icon"><i class="fas fa-plane"></i></div><span class="cat">Analytics</span></div>
+        <h3>Flight Booking Analytics</h3>
+        <p>Projet SQL complet autour de la réservation de vols : schéma à sept tables, requêtes métier, notebook et dashboard.</p>
+        <div class="tags"><span class="tag">SQL</span><span class="tag">Streamlit</span><span class="tag">Jupyter</span></div>
+        <div class="actions"><a href="https://github.com/Alimatra/flight-booking-analytics" target="_blank" rel="noopener"><i class="fab fa-github"></i>Code</a></div>
+      </article>
 
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Scanpy</span>
-          <span class="tag">MLP</span>
-          <span class="tag">Random Forest</span>
-        </div>
+      <article class="card c-ia" data-cat="ia">
+        <div class="top"><div class="icon"><i class="fas fa-brain"></i></div><span class="cat">IA &amp; NLP</span></div>
+        <h3>Virtual Adversarial Training</h3>
+        <p>Méthode de régularisation avancée pour l'apprentissage semi-supervisé, afin d'améliorer la robustesse des modèles de deep learning.</p>
+        <p class="result"><i class="fas fa-circle-check"></i>Précision portée de 80 % à 98,45 %</p>
+        <div class="tags"><span class="tag">PyTorch</span><span class="tag">CNN</span><span class="tag">Semi-supervisé</span></div>
+      </article>
 
-        <p><strong>Résultat :</strong> balanced accuracy de 87 %.</p>
-      </div>
+      <article class="card c-bio" data-cat="bio">
+        <div class="top"><div class="icon"><i class="fas fa-microscope"></i></div><span class="cat">Bio-informatique</span></div>
+        <h3>Classification de cellules scRNA-seq</h3>
+        <p>Prédiction de types cellulaires (NK, T, cancer) à partir de données single-cell, avec prétraitement avancé et sélection de variables.</p>
+        <p class="result"><i class="fas fa-circle-check"></i>Balanced accuracy de 87 %</p>
+        <div class="tags"><span class="tag">Scanpy</span><span class="tag">MLP</span><span class="tag">Random Forest</span></div>
+      </article>
 
-      <!-- PROJECT 3 -->
-      <div class="project">
-        <h3>NLP – Détection de messages indésirables</h3>
-        <p>
-          Développement et mise en production de modèles NLP pour
-          la détection automatique de messages indésirables,
-          avec suivi des performances et amélioration continue.
-        </p>
+      <article class="card c-ia" data-cat="ia">
+        <div class="top"><div class="icon"><i class="fas fa-envelope-open-text"></i></div><span class="cat">IA &amp; NLP</span></div>
+        <h3>Détection de messages indésirables</h3>
+        <p>Modèles NLP en production pour détecter automatiquement les messages indésirables, avec suivi des performances et amélioration continue.</p>
+        <div class="tags"><span class="tag">NLP</span><span class="tag">Scikit-learn</span><span class="tag">Docker</span></div>
+      </article>
 
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">NLP</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">Docker</span>
-        </div>
-      </div>
-
-      <!-- PROJECT 4 -->
-      <div class="project">
+      <article class="card c-bio" data-cat="bio">
+        <div class="top"><div class="icon"><i class="fas fa-notes-medical"></i></div><span class="cat">Bio-informatique</span></div>
         <h3>Analyse de données biomédicales</h3>
-        <p>
-          Analyse statistique et visualisation de données cliniques
-          complexes (données longitudinales, survie),
-          en collaboration avec des équipes de recherche.
-        </p>
+        <p>Analyse statistique et visualisation de données cliniques complexes (longitudinales, survie), avec des équipes de recherche.</p>
+        <div class="tags"><span class="tag">R</span><span class="tag">Statistiques</span><span class="tag">Data Viz</span></div>
+      </article>
 
-        <div class="tags">
-          <span class="tag">R</span>
-          <span class="tag">Bio-informatique</span>
-          <span class="tag">Statistiques</span>
-          <span class="tag">Data Viz</span>
-        </div>
-      </div>
+    </div>
 
+    <div class="more">
+      <a href="https://github.com/Alimatra?tab=repositories" target="_blank" rel="noopener"><i class="fab fa-github"></i> Voir tous mes dépôts GitHub</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- CONTACT -->
+  <section id="contact" style="padding-top:0">
+    <div class="contact">
+      <h2>Travaillons ensemble</h2>
+      <p>Un projet data, IA ou bio-informatique ? Parlons-en.</p>
+      <div class="cta">
+        <a class="primary" href="https://www.linkedin.com/in/alimatou-traore-" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> Me contacter sur LinkedIn</a>
+        <a class="ghost" href="https://github.com/Alimatra" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>
-      © 2026 – Alimatou Traoré – Data Scientist Freelance<br>
-      <a href="index.html">Retour au site principal</a> |
-      <a href="https://www.linkedin.com/in/alimatou-traore-" target="_blank">LinkedIn</a>
-    </p>
+    © 2026 Alimatou Traore , Data Scientist &nbsp;|&nbsp;
   </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.filters button');
+    const cards = document.querySelectorAll('.card');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(c => c.classList.toggle('hide', f !== 'all' && c.dataset.cat !== f));
+      });
+    });
+  </script>
 
 </body>
 </html>
